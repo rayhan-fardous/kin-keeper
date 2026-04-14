@@ -1,7 +1,24 @@
 import Image from "next/image";
 import { ChartNoAxesColumn, Clock3, House, Plus } from "lucide-react";
+import friends from "../data/friends.json";
+
+const statusStyles = {
+  overdue: "bg-[#EF4444] text-white",
+  "almost due": "bg-[#EFAD44] text-white",
+  "on-track": "bg-[#184d3d] text-white",
+};
 
 export default function Home() {
+  const totalFriends = friends.length;
+  const onTrack = friends.filter(
+    (friend) => friend.status === "on-track",
+  ).length;
+  const needAttention = friends.filter(
+    (friend) => friend.status !== "on-track",
+  ).length;
+  const interactionsThisMonth =
+    friends.filter((friend) => friend.days_since_contact <= 14).length * 2;
+
   return (
     <main className="min-h-screen bg-[#f6f8f8] px-12 pt-3.5">
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between">
@@ -57,30 +74,81 @@ export default function Home() {
         </div>
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="rounded-xl border border-[#e5e7eb] bg-[#f8fafc] p-6 text-center shadow-sm">
-            <p className="text-3xl font-semibold text-[#184d3d]">10</p>
+          <div className="rounded-xl border border-[#e5e7eb] bg-white p-6 text-center shadow-sm">
+            <p className="text-3xl font-semibold text-[#184d3d]">
+              {totalFriends}
+            </p>
             <p className="mt-4 text-xs uppercase tracking-[0.26em] text-[#6b7280]">
               Total Friends
             </p>
           </div>
-          <div className="rounded-xl border border-[#e5e7eb] bg-[#f8fafc] p-6 text-center shadow-sm">
-            <p className="text-3xl font-semibold text-[#184d3d]">3</p>
+          <div className="rounded-xl border border-[#e5e7eb] bg-white p-6 text-center shadow-sm">
+            <p className="text-3xl font-semibold text-[#184d3d]">{onTrack}</p>
             <p className="mt-4 text-xs uppercase tracking-[0.26em] text-[#6b7280]">
               On Track
             </p>
           </div>
-          <div className="rounded-xl border border-[#e5e7eb] bg-[#f8fafc] p-6 text-center shadow-sm">
-            <p className="text-3xl font-semibold text-[#184d3d]">6</p>
+          <div className="rounded-xl border border-[#e5e7eb] bg-white p-6 text-center shadow-sm">
+            <p className="text-3xl font-semibold text-[#184d3d]">
+              {needAttention}
+            </p>
             <p className="mt-4 text-xs uppercase tracking-[0.26em] text-[#6b7280]">
               Need Attention
             </p>
           </div>
-          <div className="rounded-xl border border-[#e5e7eb] bg-[#f8fafc] p-6 text-center shadow-sm">
-            <p className="text-3xl font-semibold text-[#184d3d]">12</p>
+          <div className="rounded-xl border border-[#e5e7eb] bg-white p-6 text-center shadow-sm">
+            <p className="text-3xl font-semibold text-[#184d3d]">
+              {interactionsThisMonth}
+            </p>
             <p className="mt-4 text-xs uppercase tracking-[0.26em] text-[#6b7280]">
               Interactions This Month
             </p>
           </div>
+        </div>
+      </section>
+      <hr className="mx-auto max-w-5xl bg-gray-200 h-px border-none"></hr>
+      <section className="mx-auto max-w-5xl mt-10">
+        <div className="mb-6 flex items-center justify-between">
+          <h2 className="text-lg font-semibold text-[#111827]">Your Friends</h2>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {friends.map((friend) => (
+            <div key={friend.id} className="rounded-xl bg-white p-6 shadow-sm">
+              <div className="flex flex-col items-center text-center">
+                <div className="relative h-20 w-20 overflow-hidden rounded-full bg-[#f3f4f6]">
+                  <img
+                    src={friend.picture}
+                    alt={friend.name}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="mt-4">
+                  <p className="text-base font-semibold text-[#111827]">
+                    {friend.name}
+                  </p>
+                  <p className="mt-1 text-xs uppercase text-[#6b7280]">
+                    {friend.days_since_contact}d ago
+                  </p>
+                </div>
+                <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
+                  {friend.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full px-3 py-1 text-[11px] font-semibold uppercase bg-[#ecfdf5] text-[#166534]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <span
+                  className={`mt-3 inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase ${statusStyles[friend.status]}`}
+                >
+                  {friend.status.replace("-", " ")}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </main>

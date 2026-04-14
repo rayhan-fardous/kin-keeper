@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Sharmin Sultana",
+    "picture": "https://randomuser.me/api/portraits/women/20.jpg",
+    "email": "sharmin.sultana@gmail.com",
+    "days_since_contact": 3,
+    "status": "on-track",
+    "tags": ["online", "friend"],
+    "bio": "Met through a Facebook group. We talk about books and self-development.",
+    "goal": 10,
+    "next_due_date": "2025-07-27"
+  },
+  {
+    "id": 2,
+    "name": "Md. Rakib Hasan",
+    "picture": "https://randomuser.me/api/portraits/men/11.jpg",
+    "email": "rakib.hasan.bd@gmail.com",
+    "days_since_contact": 4,
+    "status": "on-track",
+    "tags": ["office", "colleague"],
+    "bio": "Works in the same office. We usually talk about career growth and banking exams.",
+    "goal": 7,
+    "next_due_date": "2025-07-26"
+  },
+  {
+    "id": 3,
+    "name": "Sadia Islam",
+    "picture": "https://randomuser.me/api/portraits/women/12.jpg",
+    "email": "sadia.islam.dhaka@gmail.com",
+    "days_since_contact": 10,
+    "status": "almost due",
+    "tags": ["university", "close friend"],
+    "bio": "University friend from CSE. We used to work on group projects together.",
+    "goal": 10,
+    "next_due_date": "2025-07-21"
+  },
+  {
+    "id": 4,
+    "name": "Mehedi Hasan",
+    "picture": "https://randomuser.me/api/portraits/men/13.jpg",
+    "email": "mehedi.dev@gmail.com",
+    "days_since_contact": 15,
+    "status": "overdue",
+    "tags": ["developer", "friend"],
+    "bio": "Met during a programming contest. Shares coding resources and ideas.",
+    "goal": 7,
+    "next_due_date": "2025-07-18"
+  },
+  {
+    "id": 5,
+    "name": "Nusrat Jahan",
+    "picture": "https://randomuser.me/api/portraits/women/14.jpg",
+    "email": "nusrat.jahan.bd@gmail.com",
+    "days_since_contact": 2,
+    "status": "on-track",
+    "tags": ["cousin", "family"],
+    "bio": "My cousin from Rangpur. We meet during holidays and family events.",
+    "goal": 14,
+    "next_due_date": "2025-07-30"
+  },
+  {
+    "id": 6,
+    "name": "Sabbir Ahmed",
+    "picture": "https://randomuser.me/api/portraits/men/21.jpg",
+    "email": "sabbir.ahmed.cse@gmail.com",
+    "days_since_contact": 18,
+    "status": "overdue",
+    "tags": ["university", "batchmate"],
+    "bio": "Batchmate from AIUB. Haven’t talked in a while, should reconnect.",
+    "goal": 10,
+    "next_due_date": "2025-07-16"
+  },
+  {
+    "id": 7,
+    "name": "Farhana Akter",
+    "picture": "https://randomuser.me/api/portraits/women/16.jpg",
+    "email": "farhana.akter@gmail.com",
+    "days_since_contact": 6,
+    "status": "almost due",
+    "tags": ["neighbor", "friend"],
+    "bio": "Lives in the same area. We often chat during evening walks.",
+    "goal": 7,
+    "next_due_date": "2025-07-22"
+  },
+  {
+    "id": 8,
+    "name": "Shakil Hossain",
+    "picture": "https://randomuser.me/api/portraits/men/17.jpg",
+    "email": "shakil.hossain@gmail.com",
+    "days_since_contact": 1,
+    "status": "on-track",
+    "tags": ["business", "partner"],
+    "bio": "Working together on a small online business project.",
+    "goal": 5,
+    "next_due_date": "2025-07-28"
+  },
+  {
+    "id": 9,
+    "name": "Jannatul Ferdous",
+    "picture": "https://randomuser.me/api/portraits/women/18.jpg",
+    "email": "jannat.ferdous@gmail.com",
+    "days_since_contact": 9,
+    "status": "almost due",
+    "tags": ["college", "friend"],
+    "bio": "College friend who loves photography and traveling.",
+    "goal": 10,
+    "next_due_date": "2025-07-20"
+  },
+  {
+    "id": 10,
+    "name": "Abdullah Al Mamun",
+    "picture": "https://randomuser.me/api/portraits/men/19.jpg",
+    "email": "mamun.bd@gmail.com",
+    "days_since_contact": 13,
+    "status": "overdue",
+    "tags": ["office", "senior"],
+    "bio": "Senior colleague who gives career advice and guidance.",
+    "goal": 7,
+    "next_due_date": "2025-07-17"
+  }
+]
