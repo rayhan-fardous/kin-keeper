@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {children}
-        <footer className="bg-[#153626] text-white">
+        <footer className="mt-10 bg-[#153626] text-white">
           <div className="mx-auto flex [h-413px] max-w-5xl flex-col items-center justify-center gap-8 px-6 py-10">
             <div className="flex flex-col items-center justify-center gap-6 text-center">
               <Image
