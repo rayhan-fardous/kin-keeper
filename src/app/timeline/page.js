@@ -62,13 +62,13 @@ export default function Timeline() {
             <Clock3 size={13} strokeWidth={2.2} />
             Timeline
           </Link>
-          <button
-            type="button"
+          <Link
+            href="/stats"
             className="inline-flex h-9 items-center gap-1.5 rounded-[7px] px-3.5 text-[12px] font-medium text-[#6b7280]"
           >
             <ChartNoAxesColumn size={13} strokeWidth={2.1} />
             Stats
-          </button>
+          </Link>
         </nav>
       </div>
 
