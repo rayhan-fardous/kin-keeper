@@ -13,8 +13,8 @@ const data = [
 
 export default function Stats() {
   return (
-    <main className="min-h-screen bg-[#f6f8f8] px-12 pb-24 pt-3.5">
-      <div className="mx-auto flex w-full max-w-5xl items-center justify-between">
+    <main className="min-h-screen bg-[#f6f8f8] px-4 pb-16 pt-4 md:px-12 md:pb-24 md:pt-3.5">
+      <div className="mx-auto flex w-full max-w-5xl flex-col items-center justify-between gap-4 sm:flex-row sm:gap-0">
         <Link href="/">
           <Image
             src="/logo.png"
@@ -51,11 +51,11 @@ export default function Stats() {
       </div>
 
       <section className="mx-auto mt-16 max-w-5xl">
-        <h1 className="text-[34px] font-bold text-[#1f2937]">
+        <h1 className="text-3xl font-bold text-[#1f2937] md:text-[34px]">
           Friendship Analytics
         </h1>
 
-        <div className="mb-10 mt-8 flex h-110 flex-col relative rounded-2xl border border-[#e2e8f0] bg-white p-8 shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+        <div className="relative mb-10 mt-8 flex min-h-110 flex-col rounded-2xl border border-[#e2e8f0] bg-white p-5 shadow-[0_1px_2px_rgba(0,0,0,0.03)] sm:p-8">
           <h2 className="text-[15px] font-semibold text-[#2f5346]">
             By Interaction Type
           </h2>

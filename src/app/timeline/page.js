@@ -35,8 +35,8 @@ export default function Timeline() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#f6f8f8] px-12 pb-24 pt-3.5">
-      <div className="mx-auto flex w-full max-w-5xl items-center justify-between">
+    <main className="min-h-screen bg-[#f6f8f8] px-4 pb-16 pt-4 md:px-12 md:pb-24 md:pt-3.5">
+      <div className="mx-auto flex w-full max-w-5xl flex-col items-center justify-between gap-4 sm:flex-row sm:gap-0">
         <Link href="/">
           <Image
             src="/logo.png"
@@ -73,9 +73,9 @@ export default function Timeline() {
       </div>
 
       <section className="mx-auto mt-16 max-w-5xl">
-        <h1 className="text-[34px] font-bold text-[#1f2937]">Timeline</h1>
+        <h1 className="text-3xl md:text-[34px] font-bold text-[#1f2937]">Timeline</h1>
 
-        <div className="mb-6 mt-6 flex w-65 items-center justify-between rounded-lg border border-[#e5e7eb] bg-white px-4 py-2 text-sm text-[#6b7280]">
+        <div className="mb-6 mt-6 flex w-full items-center justify-between rounded-lg border border-[#e5e7eb] bg-white px-4 py-2 text-sm text-[#6b7280] sm:w-65">
           <span>Filter timeline</span>
           <ChevronDown size={16} strokeWidth={2} />
         </div>
@@ -84,7 +84,7 @@ export default function Timeline() {
           {timelineData.map((item, idx) => (
             <div
               key={idx}
-              className="flex items-center gap-5 rounded-lg border border-[#f1f5f9] bg-white px-5 py-3 shadow-[0_1px_2px_rgba(0,0,0,0.03)]"
+              className="flex items-center gap-4 rounded-lg border border-[#f1f5f9] bg-white px-4 py-3 shadow-[0_1px_2px_rgba(0,0,0,0.03)]  sm:gap-5 sm:px-5"
             >
               {item.isImage ? (
                 <div className="flex h-7 w-7 shrink-0 items-center justify-center drop-shadow-sm">

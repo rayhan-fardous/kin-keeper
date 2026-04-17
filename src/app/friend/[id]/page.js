@@ -64,8 +64,8 @@ export default async function FriendDetails({ params }) {
   }
 
   return (
-    <main className="min-h-screen bg-[#f6f8f8] px-12 pb-24 pt-3.5">
-      <div className="mx-auto flex w-full max-w-5xl items-center justify-between">
+    <main className="min-h-screen bg-[#f6f8f8] px-4 pb-16 pt-4 md:px-12 md:pb-24 md:pt-3.5">
+      <div className="mx-auto flex w-full max-w-5xl flex-col items-center justify-between  gap-4 sm:flex-row sm:gap-0">
         <Image
           src="/logo.png"
           alt="KeenKeeper logo"
@@ -101,7 +101,7 @@ export default async function FriendDetails({ params }) {
 
       <section className="mx-auto mt-10 max-w-5xl">
         <div className="grid gap-4 lg:grid-cols-[1.05fr_1.95fr]">
-          <div className="rounded-xl border border-[#e5e7eb] bg-white p-8">
+          <div className="rounded-xl border border-[#e5e7eb] bg-white p-6 sm:p-8">
             <div className="flex flex-col items-center text-center">
               <div className="h-28 w-28 overflow-hidden rounded-full bg-[#f3f4f6]">
                 <img
@@ -114,7 +114,7 @@ export default async function FriendDetails({ params }) {
                 <p className="text-2xl font-semibold text-[#111827]">
                   {friend.name}
                 </p>
-                <div className="mt-3 flex flex-col items-center justify-center gap-2">
+                <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
                   <span
                     className={`rounded-full px-2 py-1 text-xs uppercase font-semibold ${statusStyles[friend.status]}`}
                   >
@@ -179,7 +179,7 @@ export default async function FriendDetails({ params }) {
             </div>
 
             <div className="rounded-xl border border-[#e5e7eb] bg-white p-6">
-              <div className="flex items-center justify-between gap-4">
+              <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
                 <div>
                   <p className="text-md font-bold text-[#184d3d]">
                     Relationship Goal
@@ -216,7 +216,7 @@ export default async function FriendDetails({ params }) {
             </div>
 
             <div className="rounded-xl border border-[#e5e7eb] bg-white p-6">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
                 <p className="text-sm font-semibold text-[#111827]">
                   Recent Interactions
                 </p>
@@ -230,7 +230,7 @@ export default async function FriendDetails({ params }) {
                   return (
                     <div
                       key={index}
-                      className="flex items-start gap-4 rounded-[18px] border border-[#e5e7eb] bg-[#f8fafc] p-4"
+                      className="flex flex-col items-start gap-4 rounded-[18px] border border-[#e5e7eb] bg-[#f8fafc] p-4 sm:flex-row sm:items-center"
                     >
                       <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#153626]">
                         <Icon size={18} />

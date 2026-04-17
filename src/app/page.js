@@ -21,8 +21,8 @@ export default function Home() {
     friends.filter((friend) => friend.days_since_contact <= 14).length * 2;
 
   return (
-    <main className="min-h-screen bg-[#f6f8f8] px-12 pt-3.5">
-      <div className="mx-auto flex w-full max-w-5xl items-center justify-between">
+    <main className="min-h-screen bg-[#f6f8f8] px-4 pt-4 md:px-12 md:pt-3.5">
+      <div className="mx-auto flex w-full max-w-5xl flex-col items-center justify-between gap-4 sm:flex-row sm:gap-0">
         <Image
           src="/logo.png"
           alt="KeenKeeper logo"
@@ -56,7 +56,7 @@ export default function Home() {
         </nav>
       </div>
 
-      <section className="mx-auto mt-14 max-w-5xl px-8 py-12">
+      <section className="mx-auto mt-8 max-w-5xl px-5 py-8  sm:mt-14 sm:px-8 sm:py-12">
         <div className="text-center">
           <h1 className="mt-4 text-4xl font-semibold text-[#111827] sm:text-5xl">
             Friends to keep close in your life
