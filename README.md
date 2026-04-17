@@ -17,9 +17,12 @@ Kin Keeper is a simple and efficient relationship management application that he
 
 ## 🛠️ Tech Stack
 
+- Next.js 15 (App Router)
 - Frontend: React JS
-- Styling: Tailwind CSS
+- Styling: Tailwind CSS + DaisyUI
+- Recharts
+- Lucide React Icons
 
 ---
 
-## 📂 Project Structure
+### Live Link: [Click Here](https://kin-keeper-sigma.vercel.app/)
