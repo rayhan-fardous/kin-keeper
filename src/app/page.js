@@ -9,7 +9,8 @@ const statusStyles = {
   "on-track": "bg-[#184d3d] text-white",
 };
 
-export default function Home() {
+export default async function Home() {
+  await new Promise((resolve) => setTimeout(resolve, 800));
   const totalFriends = friends.length;
   const onTrack = friends.filter(
     (friend) => friend.status === "on-track",

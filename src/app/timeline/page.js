@@ -1,38 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Clock3, ChartNoAxesColumn, ChevronDown, House } from "lucide-react";
+import { useInteractions } from "@/context/InteractionContext";
+import { useState } from "react";
 
 export default function Timeline() {
-  const timelineData = [
-    {
-      type: "Call",
-      icon: "/call.png",
-      isImage: true,
-      person: "Sharmin Sultana",
-      date: "March 21, 2025",
-    },
-    {
-      type: "Call",
-      icon: "/call.png",
-      isImage: true,
-      person: "Md. Rakib Hasan",
-      date: "March 25, 2025",
-    },
-    {
-      type: "Video",
-      icon: "/video.png",
-      isImage: true,
-      person: "Sadia Islam",
-      date: "March 15, 2025",
-    },
-    {
-      type: "Video",
-      icon: "/video.png",
-      isImage: true,
-      person: "Mehedi Hasan",
-      date: "February 06, 2025",
-    },
-  ];
+  const { interactions, isLoaded } = useInteractions();
+  const [filter, setFilter] = useState("All");
+
+  const filteredData = interactions.filter((item) => {
+    if (filter === "All") return true;
+    return item.type === filter;
+  });
 
   return (
     <main className="min-h-screen bg-[#f6f8f8] px-4 pb-16 pt-4 md:px-12 md:pb-24 md:pt-3.5">
@@ -73,45 +54,70 @@ export default function Timeline() {
       </div>
 
       <section className="mx-auto mt-16 max-w-5xl">
-        <h1 className="text-3xl md:text-[34px] font-bold text-[#1f2937]">Timeline</h1>
+        <h1 className="text-3xl md:text-[34px] font-bold text-[#1f2937]">
+          Timeline
+        </h1>
 
-        <div className="mb-6 mt-6 flex w-full items-center justify-between rounded-lg border border-[#e5e7eb] bg-white px-4 py-2 text-sm text-[#6b7280] sm:w-65">
-          <span>Filter timeline</span>
-          <ChevronDown size={16} strokeWidth={2} />
+        <div className="relative mb-6 mt-6 flex w-full items-center justify-between rounded-lg border border-[#e5e7eb] bg-white px-4 py-1 text-sm text-[#6b7280] sm:w-65">
+          <select
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+            className="w-full appearance-none bg-transparent py-2 outline-none cursor-pointer"
+          >
+            <option value="All">Filter timeline (All)</option>
+            <option value="Call">Call</option>
+            <option value="Text">Text</option>
+            <option value="Video">Video</option>
+          </select>
+          <ChevronDown
+            size={16}
+            strokeWidth={2}
+            className="pointer-events-none absolute right-4"
+          />
         </div>
 
-        <div className="flex flex-col gap-4">
-          {timelineData.map((item, idx) => (
-            <div
-              key={idx}
-              className="flex items-center gap-4 rounded-lg border border-[#f1f5f9] bg-white px-4 py-3 shadow-[0_1px_2px_rgba(0,0,0,0.03)]  sm:gap-5 sm:px-5"
-            >
-              {item.isImage ? (
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center drop-shadow-sm">
-                  <Image
-                    src={item.icon}
-                    alt={item.type}
-                    width={28}
-                    height={28}
-                    className="object-contain"
-                  />
+        <div className="flex flex-col gap-2">
+          {isLoaded ? (
+            filteredData.length > 0 ? (
+              filteredData.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center gap-4 rounded-lg border border-[#f1f5f9] bg-white px-4 py-4 sm:gap-5 sm:px-6"
+                >
+                  {item.isImage ? (
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center drop-shadow-sm">
+                      <Image
+                        src={item.icon}
+                        alt={item.type}
+                        width={28}
+                        height={28}
+                        className="object-contain"
+                      />
+                    </div>
+                  ) : (
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center text-[26px] drop-shadow-sm">
+                      {item.icon}
+                    </span>
+                  )}
+                  <div className="flex flex-col gap-0.5">
+                    <p className="text-[15px]">
+                      <span className="font-bold text-[#475569]">
+                        {item.type}
+                      </span>{" "}
+                      <span className="text-[#64748b]">with {item.person}</span>
+                    </p>
+                    <p className="text-[13px] font-semibold text-[#94a3b8]">
+                      {item.date}
+                    </p>
+                  </div>
                 </div>
-              ) : (
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center text-[26px] drop-shadow-sm">
-                  {item.icon}
-                </span>
-              )}
-              <div className="flex flex-col gap-0.5">
-                <p className="text-[15px]">
-                  <span className="font-bold text-[#475569]">{item.type}</span>{" "}
-                  <span className="text-[#64748b]">with {item.person}</span>
-                </p>
-                <p className="text-[13px] font-semibold text-[#94a3b8]">
-                  {item.date}
-                </p>
-              </div>
-            </div>
-          ))}
+              ))
+            ) : (
+              <p className="text-[#6b7280]">No events found.</p>
+            )
+          ) : (
+            <p className="text-[#6b7280]">Loading timeline...</p>
+          )}
         </div>
       </section>
     </main>

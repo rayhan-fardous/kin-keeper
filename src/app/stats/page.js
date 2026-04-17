@@ -4,14 +4,30 @@ import Image from "next/image";
 import Link from "next/link";
 import { Clock3, ChartNoAxesColumn, House } from "lucide-react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
-
-const data = [
-  { name: "Text", value: 40, color: "#8b5cf6" },
-  { name: "Call", value: 30, color: "#184d3d" },
-  { name: "Video", value: 30, color: "#22c55e" },
-];
+import { useInteractions } from "@/context/InteractionContext";
+import { useMemo } from "react";
 
 export default function Stats() {
+  const { interactions, isLoaded } = useInteractions();
+
+  const data = useMemo(() => {
+    if (!isLoaded) return [];
+    let textCount = 0;
+    let callCount = 0;
+    let videoCount = 0;
+
+    interactions.forEach((item) => {
+      if (item.type === "Text") textCount++;
+      else if (item.type === "Call") callCount++;
+      else if (item.type === "Video") videoCount++;
+    });
+
+    return [
+      { name: "Text", value: textCount, color: "#8b5cf6" },
+      { name: "Call", value: callCount, color: "#184d3d" },
+      { name: "Video", value: videoCount, color: "#22c55e" },
+    ].filter(d => d.value > 0);
+  }, [interactions, isLoaded]);
   return (
     <main className="min-h-screen bg-[#f6f8f8] px-4 pb-16 pt-4 md:px-12 md:pb-24 md:pt-3.5">
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center justify-between gap-4 sm:flex-row sm:gap-0">
